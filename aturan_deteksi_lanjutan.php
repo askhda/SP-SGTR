@@ -36,7 +36,7 @@
 		
 		if ($lsatu=='tidak' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
 
-			$hasil="Berdasarkan sepuluh kecelakaan steam generator tube rupture tidak terjadi steam generator tube rupture.";
+			$hasil="Berdasarkan sepuluh kejadian steam generator tube rupture tidak terjadi steam generator tube rupture.";
 			$tujtin="Tidak ada tindakan yang ditujukan untuk mengatasi kondisi tersebut.";
 			$tinop="Tidak ada tindakan yang diperlukan untuk mengatasi kondisi tersebut.";
 
@@ -52,7 +52,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Doel Unit 2 dan Fort Calhoun.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -75,7 +75,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Point Beach Unit 1.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -98,7 +98,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Surry Unit 2.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -121,7 +121,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Prairie Island Unit 1.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -144,7 +144,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Ginna Unit 1.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -167,7 +167,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor North Anna Unit 1 dan Polo Verde Unit 2.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -190,7 +190,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor McGuire Unit 1.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
@@ -213,7 +213,7 @@
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Mihama Unit 2.";
 
-			$tujtin="(1) Mengatur primary coolant subcooled <br>
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
 			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
 
