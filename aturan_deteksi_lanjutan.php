@@ -33,24 +33,26 @@
 		$ldelapan=$_POST['ldelapan'];
 		$lsembilan=$_POST['lsembilan'];
 		$lsepuluh=$_POST['lsepuluh'];
+		$lsebelas=$_POST['lsebelas'];
+		$lduabelas=$_POST['lduabelas'];
 		
-		if ($lsatu=='tidak' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
+		if ($lsatu=='tidak' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Berdasarkan sepuluh kejadian steam generator tube rupture tidak terjadi steam generator tube rupture.";
 			$tujtin="Tidak ada tindakan yang ditujukan untuk mengatasi kondisi tersebut.";
 			$tinop="Tidak ada tindakan yang diperlukan untuk mengatasi kondisi tersebut.";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);			
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";			
 
 		}
 
-		//Doel Unit 2 dan Fort Calhoun
-		elseif ($ldua=='ya' && $lsatu=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
-
-			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Doel Unit 2 dan Fort Calhoun.";
+		//Doel Unit 2
+		elseif ($ldua=='ya' && $lsatu=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='ya' && $lduabelas=='ya') {
+			
+			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Doel Unit 2.";
 
 			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
 			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
@@ -63,7 +65,29 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
+			$result = $conn->query($sql);
+
+			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
+		}
+
+		//Fort Calhoun
+		elseif ($ldua=='ya' && $lsatu=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
+
+			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Fort Calhoun.";
+
+			$tujtin="(1) Mengatur pendingin primer berada dalam keadaan subcooled <br>
+			(2) Meminimalisir bocoran dari pendingin sistem primer ke pedingin sistem sekunder <br>
+			(3) Mencegah pelepasan radioaktivitas dari steam generator yang rusak";
+
+			$tinop="(1) Mendeteksi SGTR yang tengah terjadi <br>
+			(2) Mengontrol level pressurizer menggunakan charging pump dan letdown line (jika rupture kecil) <br>
+			(3) Reduksi daya/trip <br>
+			(4) Isolasi steam generator yang rusak <br>
+			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
+			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
+
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -71,7 +95,7 @@
 		}
 
 		//Point Beach Unit 1
-		elseif ($lsatu=='ya' && $lempat=='ya' && $llima=='ya' && $ldua=='tidak' && $ltiga=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
+		elseif ($lsatu=='ya' && $lempat=='ya' && $llima=='ya' && $ldua=='tidak' && $ltiga=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Point Beach Unit 1.";
 
@@ -86,7 +110,7 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -94,7 +118,7 @@
 		}
 
 		//Surry Unit 2
-		elseif ($lsatu=='tidak' && $ldua=='ya' && $ltiga=='tidak' && $lempat=='ya' && $llima=='tidak' & $lenam=='ya' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
+		elseif ($lsatu=='tidak' && $ldua=='ya' && $ltiga=='tidak' && $lempat=='ya' && $llima=='tidak' & $lenam=='ya' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Surry Unit 2.";
 
@@ -117,7 +141,7 @@
 		}		
 
 		//Prairie Island Unit 1
-		elseif ($lsatu=='ya' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
+		elseif ($lsatu=='ya' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Prairie Island Unit 1.";
 
@@ -132,7 +156,7 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -140,7 +164,7 @@
 		}
 
 		//Ginna Unit 1
-		elseif ($lsatu=='ya' && $ldua=='ya' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='ya' && $ldelapan=='ya' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
+		elseif ($lsatu=='ya' && $ldua=='ya' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='ya' && $ldelapan=='ya' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Ginna Unit 1.";
 
@@ -155,7 +179,7 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -163,7 +187,7 @@
 		}
 		
 		//North Anna Unit 1 dan Polo Verde Unit 2
-		elseif ( $lsatu=='tidak'  && $ltiga=='ya' && $ldua=='ya' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak') {
+		elseif ( $lsatu=='tidak'  && $ltiga=='ya' && $ldua=='ya' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor North Anna Unit 1 dan Polo Verde Unit 2.";
 
@@ -178,7 +202,7 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user` , `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -186,7 +210,7 @@
 		}
 
 		//McGuire Unit 1
-		elseif ($lsatu=='tidak' && $ldua=='tidak' && $ltiga=='ya' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='ya') {
+		elseif ($lsatu=='tidak' && $ldua=='tidak' && $ltiga=='ya' && $lempat=='tidak' && $llima=='ya' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='tidak' && $lsepuluh=='ya' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor McGuire Unit 1.";
 
@@ -201,7 +225,7 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -209,7 +233,7 @@
 		}
 
 		//Mihama Unit 2
-		elseif ($lsatu=='ya' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='ya' && $lsepuluh=='tidak') {
+		elseif ($lsatu=='ya' && $ldua=='tidak' && $ltiga=='tidak' && $lempat=='tidak' && $llima=='tidak' && $lenam=='tidak' && $ltujuh=='tidak' && $ldelapan=='tidak' && $lsembilan=='ya' && $lsepuluh=='tidak' && $lsebelas=='tidak' && $lduabelas=='tidak') {
 
 			$hasil="Terjadi steam generator tube rupture sesuai dengan reaktor Mihama Unit 2.";
 
@@ -224,7 +248,7 @@
 			(5) pendinginan sistem pendingin reaktor termasuk aliran yang dipompa ke keseluruhan steam generator dan keseluruhan uap steam generator yang dibuang ke kondensor atau atmosfir <br>
 			(6) Depresurisasi sistem pendingin reaktor yang biasanya membutuhkan pembatasan safety injection dan penggunakan pressurizer sprays";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";
@@ -237,7 +261,7 @@
 			$tujtin="Menemukan kejadian yang sedang berlangsung agar kejadian dapat segera diatasi.";
 			$tinop="Lakukan pemeriksaan sesuai dengan prosedur yang disediakan untuk reaktor tersebut.";
 
-			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh' )";
+			$sql = "INSERT INTO `log_deteksilan`( `id_user`, `lsatu`, `ldua`, `ltiga`, `lempat`, `llima`, `lenam`, `ltujuh`, `ldelapan`, `lsembilan`, `hasil`, `tujtin`, `tinop`, `lsepuluh`, `lsebelas`, `lduabelas` ) VALUES ('$pk', '$lsatu', '$ldua', '$ltiga', '$lempat', '$llima', '$lenam', '$ltujuh', '$ldelapan', '$lsembilan', '$hasil', '$tujtin', '$tinop', '$lsepuluh', '$lsebelas', '$lduabelas' )";
 			$result = $conn->query($sql);
 
 			echo "<script>window.location = 'hasil_deteksi_lanjutan.php';</script>";

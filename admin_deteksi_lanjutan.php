@@ -55,6 +55,8 @@ $data=$conn->query($tabel);
               <th class="center">Indikasi delapan</th>
               <th class="center">Indikasi sembilan</th>
               <th class="center">Indikasi sepuluh</th>
+              <th class="center">Indikasi sebelas</th>
+              <th class="center">Indikasi dua belas</th>
               <th class="center">Hasil deteksi</th>
             </tr>
           </thead>
@@ -77,6 +79,8 @@ $data=$conn->query($tabel);
                 <td class="center">'.$row['ldelapan'].'</td>
                 <td class="center">'.$row['lsembilan'].'</td>
                 <td class="center">'.$row['lsepuluh'].'</td>
+                <td class="center">'.$row['lsebelas'].'</td>
+                <td class="center">'.$row['lduabelas'].'</td>
                 <td class="center">'.$row['hasil'].'</td>
 
                 </tr>';
@@ -98,6 +102,8 @@ $data=$conn->query($tabel);
           <li>Indikasi delapan = Steam/feed flow mismatch alarm berbunyi</li>
           <li>Indikasi sembilan = Lima menit kemudian secondary steam blowdown radiation monitor berbunyi</li>
           <li>Indikasi sepuluh = Aliran feedwater pada B steam generator berkurang sedangkan levelnya relative konstan</li>
+          <li>Indikasi sebelas = Terjadi peningkatan level steam generator yang cepat pada loop B</li>
+          <li>Indikasi duabelas = Radiation monitoring channels mencatat tingkat aktivitas radiasi yang tinggi</li>
         </ul>
         <br><br><br>
         <!---- Jumlah keseluruhan deteksi yang sudah dilakukan ---->

@@ -30,6 +30,8 @@
       var delapan = document.getElementsByName('ldelapan');
       var sembilan = document.getElementsByName('lsembilan');
       var sepuluh = document.getElementsByName('lsepuluh');
+      var sebelas = document.getElementsByName('lsebelas');
+      var duabelas = document.getElementsByName('lduabelas');
       var isian_empat = false;
       var isian_lima = false;
       var isian_enam = false;
@@ -37,6 +39,8 @@
       var isian_delapan = false;
       var isian_sembilan = false;
       var isian_sepuluh = false;
+      var isian_sebelas = false;
+      var isian_duabelas = false;
 
       for (var i = 0; i<empat.length; i++) {
         if (empat[i].checked == true) {
@@ -111,6 +115,28 @@
       }
 
       if (!isian_sepuluh) {
+        alert("Terdapat kondisi yang belum terisi!");
+        return false;
+      }
+
+      for (var i = 0; i<sebelas.length; i++) {
+        if (sebelas[i].checked == true) {
+          isian_sebelas = true;
+        }
+      }
+
+      if (!isian_sebelas) {
+        alert("Terdapat kondisi yang belum terisi!");
+        return false;
+      }
+
+      for (var i = 0; i<duabelas.length; i++) {
+        if (duabelas[i].checked == true) {
+          isian_duabelas = true;
+        }
+      }
+
+      if (!isian_duabelas) {
         alert("Terdapat kondisi yang belum terisi!");
         return false;
       }
@@ -213,6 +239,30 @@
                       <input name="lsepuluh" type="radio" value="tidak" />
                       <span class="black-text">Tidak</span>
                     </label>
+                    <!--- Tambagan kondisi buat doel unit 2-->
+                    <br><br>
+                    <h6 class="center brown-text"> Terjadi peningkatan level steam generator yang cepat pada loop B </h6>
+                    <br>
+                    <label class="col s3 offset-l2">
+                      <input name="lsebelas" type="radio" value="ya" />
+                      <span class="black-text">Ya</span>
+                    </label>     
+                    <label class="col s3 offset-l3">
+                      <input name="lsebelas" type="radio" value="tidak" />
+                      <span class="black-text">Tidak</span>
+                    </label>
+                    <br><br>
+                    <h6 class="center brown-text"> Radiation monitoring channels mencatat tingkat aktivitas radiasi yang tinggi </h6>
+                    <br>
+                    <label class="col s3 offset-l2">
+                      <input name="lduabelas" type="radio" value="ya" />
+                      <span class="black-text">Ya</span>
+                    </label>     
+                    <label class="col s3 offset-l3">
+                      <input name="lduabelas" type="radio" value="tidak" />
+                      <span class="black-text">Tidak</span>
+                    </label>
+                    <!------ To submit the form ---->
                     <br><br><br>                                 
                     <div class="center">
                         <input type="submit" name="submit" value="KIRIM" onclick="return validate();" class="btn brand teal">

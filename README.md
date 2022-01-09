@@ -2,8 +2,9 @@
 <p>
 Sistem Pakar Steam Generator Tube Rupture (SP-SGTR) merupakan sistem pakar yang akan membantu operator Pressurizer Water Reactor (PWR) dalam mendeteksi terjadinya Steam Generator Tube Rupture (SGTR). Sistem ini dikembangkan berdasarkan sepuluh kejadian SGTR yang pernah terjadi berdasarkan NUREG/CR-6365 dengan menggunakan metode forward chaining.
 </p>
-<img src="https://img.youtube.com/vi/tg84iilZ9Xo/maxresdefault.jpg">
-<p><a href="https://www.youtube.com/watch?v=tg84iilZ9Xo"><h3 align="center">Putar demo SP-SGTR</h3></a></p>
+<img src="https://img.youtube.com/vi/Jj0i4ocovzQ/maxresdefault.jpg">
+<p><a href="https://www.youtube.com/watch?v=Jj0i4ocovzQ"><h3 align="center">Putar demo SP-SGTR</h3></a></p>
+
 
 <h2>Cara Menggunakan</h2>
 <ol>

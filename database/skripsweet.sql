@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2021 at 10:26 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: Jan 08, 2022 at 11:20 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -50,7 +49,7 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 CREATE TABLE `log_deteksi` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `gpsatu` varchar(70) NOT NULL,
   `gpdua` varchar(70) NOT NULL,
   `gptiga` varchar(70) NOT NULL,
@@ -67,7 +66,7 @@ CREATE TABLE `log_deteksi` (
 CREATE TABLE `log_deteksilan` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `lsatu` varchar(100) NOT NULL,
   `ldua` varchar(100) NOT NULL,
   `ltiga` varchar(100) NOT NULL,
@@ -78,6 +77,8 @@ CREATE TABLE `log_deteksilan` (
   `ldelapan` varchar(100) NOT NULL,
   `lsembilan` varchar(100) NOT NULL,
   `lsepuluh` varchar(100) NOT NULL,
+  `lsebelas` varchar(100) NOT NULL,
+  `lduabelas` varchar(100) NOT NULL,
   `hasil` varchar(700) NOT NULL,
   `tujtin` varchar(700) NOT NULL,
   `tinop` varchar(800) NOT NULL
@@ -134,21 +135,25 @@ ALTER TABLE `user`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `log_deteksi`
 --
 ALTER TABLE `log_deteksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `log_deteksilan`
 --
 ALTER TABLE `log_deteksilan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
